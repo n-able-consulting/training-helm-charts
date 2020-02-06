@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sso-frontend.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "sso-frontend.name" . }}
+    helm.sh/chart: {{ include "sso-frontend.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "sso-frontend.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "sso-frontend.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: KEYCLOAK_URL
+            value: https://{{ .Values.ssoFrontendContainer.idserviceUrl }}/auth
+          - name: SERVICE_URL
+            value: https://{{ .Values.ssoFrontendContainer.backendUrl }}
+          ports:
+          - name: http
+            containerPort: {{ .Values.ssoFrontendContainer.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+      imagePullSecrets:
+        - name: {{ .Values.registry.secret }}
