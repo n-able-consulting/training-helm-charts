@@ -1,0 +1,65 @@
+# Default values for voting-worker.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: enabledocker/sso-app-backend
+  tag: "1.0"
+  pullPolicy: Always
+
+registry:
+  secret: master-sso-backend
+
+nameOverride: ""
+fullnameOverride: ""
+
+ssoBackendContainer:
+  port: 8080
+  idserviceUrl: keycloak.part2.xyz
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+    enabled: true
+    path: /
+    annotations: {}
+    ## List of hosts for the ingress
+    host: sso-backend.part2.xyz
+
+# Readiness probe
+readinessProbe:
+  initialDelaySeconds: 5
+  timeoutSeconds: 1
+  failureThreshold: 3
+  periodSeconds: 10
+  successThreshold: 1
+
+# Liveness probe
+livenessProbe:
+  initialDelaySeconds: 30
+  timeoutSeconds: 5
+  failureThreshold: 3
+  periodSeconds: 10
+  successThreshold: 1
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
