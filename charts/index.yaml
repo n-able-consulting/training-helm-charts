@@ -3,9 +3,10 @@ entries:
   sso-backend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-02-06T16:07:09.532441039+01:00"
-    description: A Helm chart for Kubernetes
-    digest: 48a81ac3405dbacdd6c0c54e4c0df2974eee581205e0ade29642bd421e80e33a
+    created: "2020-02-06T17:18:38.535810368+01:00"
+    description: 'N-Able Training: Subject Single Sign On - Backoffice Application.
+      Example of how to add RBAC to applictions using OAuth2 SSO.'
+    digest: e35e9d07e84c2abc8b91d76901df6c43a2b6b2c8a929a5a034a0b6a94766655e
     name: sso-backend
     urls:
     - sso-backend-0.1.0.tgz
@@ -13,11 +14,12 @@ entries:
   sso-frontend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-02-06T16:07:09.533141026+01:00"
-    description: A Helm chart for Kubernetes
-    digest: 2b343638b0f1c4fa0d090abb4105230858db2254a19272e2e4cbebaa4674ca7c
+    created: "2020-02-06T17:18:38.536241016+01:00"
+    description: 'N-Able Training: Subject Single Sign On - Frontoffice Application.
+      Example of how to add RBAC to applictions using OAuth2 SSO.'
+    digest: 8efbdc42309a84cba905060ee56b0f1696ac57844895fa475e6d2cd6e4a2f7ec
     name: sso-frontend
     urls:
     - sso-frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2020-02-06T16:07:09.531611162+01:00"
+generated: "2020-02-06T17:18:38.535262316+01:00"
