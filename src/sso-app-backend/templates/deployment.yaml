@@ -31,7 +31,5 @@ spec:
             containerPort: {{ .Values.ssoBackendContainer.port }}
           readinessProbe:
             httpGet:
-              path: /
-              port: 80
-      imagePullSecrets:
-        - name: {{ .Values.registry.secret }}
+              path: /public
+              port: {{ .Values.ssoBackendContainer.port }}

@@ -7,6 +7,6 @@ sso-app-frontend:
 	cd charts && helm repo index .
 
 .PHONY: sso-app-backend
-sso-app-frontend:
+sso-app-backend:
 	helm package src/sso-app-backend -d charts/
 	cd charts && helm repo index .

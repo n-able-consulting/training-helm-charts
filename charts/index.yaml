@@ -1,13 +1,23 @@
 apiVersion: v1
 entries:
+  sso-backend:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-02-06T16:07:09.532441039+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 48a81ac3405dbacdd6c0c54e4c0df2974eee581205e0ade29642bd421e80e33a
+    name: sso-backend
+    urls:
+    - sso-backend-0.1.0.tgz
+    version: 0.1.0
   sso-frontend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-02-06T15:31:48.171488655+01:00"
+    created: "2020-02-06T16:07:09.533141026+01:00"
     description: A Helm chart for Kubernetes
-    digest: a27bb48e4d67a47129d469702b9ccd8636da3983d29104fc7bdac48289d5d9dc
+    digest: 2b343638b0f1c4fa0d090abb4105230858db2254a19272e2e4cbebaa4674ca7c
     name: sso-frontend
     urls:
     - sso-frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2020-02-06T15:31:48.170990259+01:00"
+generated: "2020-02-06T16:07:09.531611162+01:00"
