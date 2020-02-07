@@ -17,8 +17,8 @@ fullnameOverride: ""
 
 ssoFrontendContainer:
   port: 80
-  idserviceUrl: keycloak.part2.xyz
-  backendUrl: sso-backend.part2.xyz
+  idserviceUrl: keycloak.part1.xyz
+  backendUrl: sso-backend.part1.xyz
 
 service:
   type: ClusterIP
@@ -29,7 +29,7 @@ ingress:
     path: /
     annotations: {}
     ## List of hosts for the ingress
-    host: sso-frontend.part2.xyz
+    host: sso-frontend.part1.xyz
 
 # Readiness probe
 readinessProbe:
