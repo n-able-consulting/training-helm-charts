@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "clientip.fullname" . }}
+  annotations:
+    prometheus.io/scrape: 'true'
+  labels:
+    app.kubernetes.io/name: {{ include "clientip.name" . }}
+    helm.sh/chart: {{ include "clientip.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      protocol: TCP
+      targetPort: {{ .Values.ClientIpContainer.port }}
+  selector:
+    app.kubernetes.io/name: {{ include "clientip.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

@@ -1,12 +1,23 @@
 apiVersion: v1
 entries:
+  clientip:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-02-10T09:32:40.0149749+01:00"
+    description: 'N-Able Training: Subject Single Sign On - Backoffice Application.
+      Example of how to add RBAC to applictions using OAuth2 SSO.'
+    digest: 966c4de0b4bc816336f3af57d260ce303a3f5d33dfb4080f167ee84aff20bb23
+    name: clientip
+    urls:
+    - clientip-0.1.0.tgz
+    version: 0.1.0
   sso-app-backend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2020-02-07T10:15:59.4365306+01:00
+    created: "2020-02-10T09:32:40.0157849+01:00"
     description: 'N-Able Training: Subject Single Sign On - Backoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: 195f1c48ade011cd102e7f6796756e9f41d4081186b25c1223aeec3dff29770e
+    digest: addf3b32f8dd4935d365f27c9f96aa0895671ad9dd626db6128b0efdab736048
     name: sso-app-backend
     urls:
     - sso-app-backend-0.1.0.tgz
@@ -14,12 +25,12 @@ entries:
   sso-app-frontend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2020-02-07T10:15:59.4371274+01:00
+    created: "2020-02-10T09:32:40.0166476+01:00"
     description: 'N-Able Training: Subject Single Sign On - Frontoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: a7f6393504a5fa7f05280902bb9ffea6ffbdc4b4c2cbf9e3507a008ee7573946
+    digest: 88730697a143263afbfcfee6dd6093055f17a117a90662d22cda5eec5c1f3dc0
     name: sso-app-frontend
     urls:
     - sso-app-frontend-0.1.0.tgz
     version: 0.1.0
-generated: 2020-02-07T10:15:59.4356908+01:00
+generated: "2020-02-10T09:32:40.0139847+01:00"

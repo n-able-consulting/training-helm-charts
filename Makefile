@@ -1,5 +1,5 @@
 .PHONY : all
-all : sso-app-frontend sso-app-backend
+all : sso-app-frontend sso-app-backend client-ip
 
 .PHONY: sso-app-frontend
 sso-app-frontend:
@@ -9,4 +9,9 @@ sso-app-frontend:
 .PHONY: sso-app-backend
 sso-app-backend:
 	helm package ./src/sso-app-backend -d charts/
+	cd charts && helm repo index .
+
+.PHONY: client-ip
+client-ip:
+	helm package ./src/client-ip -d charts/
 	cd charts && helm repo index .
