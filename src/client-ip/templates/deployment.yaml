@@ -28,7 +28,7 @@ spec:
             containerPort: {{ .Values.ClientIpContainer.port }}
           livenessProbe:
             httpGet:
-              path: /healty
+              path: /healthy
               port: {{ .Values.ClientIpContainer.port }}
             initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
