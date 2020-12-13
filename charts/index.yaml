@@ -3,20 +3,40 @@ entries:
   clientip:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-11-01T13:53:50.428617276+01:00"
+    created: "2020-12-13T13:05:24.176297331+01:00"
     description: 'N-Able Training: client-ip app'
-    digest: 71143d027201b0e0ea4a81d61dcb3bed0aa3dd7e22866f4f39aa9def8d40b7a5
+    digest: 3407781770f3a6d47c9e09ce4b6714ba9c8301a91543a84d2f30eeb8d1024dfd
     name: clientip
     urls:
     - clientip-0.1.0.tgz
     version: 0.1.0
+  hello-svc:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-12-13T13:05:24.176633177+01:00"
+    description: A Helm chart for Kubernetes
+    digest: df0bfb75ac367bd60acce6775678940ca7616b4bc4d0a93aef4d4aef308f213e
+    name: hello-svc
+    urls:
+    - hello-svc-0.1.0.tgz
+    version: 0.1.0
+  quote-svc:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-12-13T13:05:24.176972339+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 9567aae70a6bebdf604509583dcde4a83785d34b987f411bbf4411702cd4664f
+    name: quote-svc
+    urls:
+    - quote-svc-0.1.0.tgz
+    version: 0.1.0
   sso-app-backend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-11-01T13:53:50.428987589+01:00"
+    created: "2020-12-13T13:05:24.177358134+01:00"
     description: 'N-Able Training: Subject Single Sign On - Backoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: d5fd5e793c423002037c7e51079c0fcee6f340fb8358de1b6b9c4d0aba94eed3
+    digest: 1e37ecd6ee707712485ad6822e300833c2bb013bc63ea2ec756180db64533840
     name: sso-app-backend
     urls:
     - sso-app-backend-0.1.0.tgz
@@ -24,12 +44,12 @@ entries:
   sso-app-frontend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-11-01T13:53:50.429380116+01:00"
+    created: "2020-12-13T13:05:24.177738529+01:00"
     description: 'N-Able Training: Subject Single Sign On - Frontoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: a25cfdc90ee3bfe73d7bea176dab26b536c0269072adbad0d38fab305308712f
+    digest: 9e8bcf3203274ceb7aa09f254945ab354186ff5ddd5a63849c1a6b78a51ba10d
     name: sso-app-frontend
     urls:
     - sso-app-frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2020-11-01T13:53:50.428136782+01:00"
+generated: "2020-12-13T13:05:24.175761769+01:00"
