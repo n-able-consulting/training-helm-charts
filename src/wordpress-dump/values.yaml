@@ -1,0 +1,40 @@
+cronjob:
+  # At 01:00 every day
+  schedule: "0 1 * * *"
+  annotations: {}
+  concurrencyPolicy: "Forbid"
+  failedJobsHistoryLimit: "1"
+  successfulJobsHistoryLimit: "1"
+
+nameOverride: ""
+fullnameOverride: ""
+
+wordpress:
+  #sitename is essential for keeping dumps appart in the backup directory
+  sitename: "unique-site-name"
+  persistent:
+    readwritemany:
+      volumeclaim: "a"
+  database:
+    service: "k8s-db-hostname"
+    user: ""
+    password: ""
+    name: "wordpress_database_name"
+
+dump:
+  #optional: "", true, false
+  all_databases: false
+
+image:
+  registry: registry.gitlab.com
+  repository: wordpress-dump-job
+  tag: master
+  credentailsname: gitlabcredentials
+  username: someone
+  password: sillyness
+  pullPolicy: Always
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 2Gi
+  storageClass: ""
