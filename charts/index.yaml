@@ -3,9 +3,9 @@ entries:
   clientip:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-13T13:05:24.176297331+01:00"
+    created: "2020-12-18T07:31:58.210929533+01:00"
     description: 'N-Able Training: client-ip app'
-    digest: 3407781770f3a6d47c9e09ce4b6714ba9c8301a91543a84d2f30eeb8d1024dfd
+    digest: dbbf344c2967fffabfb89864fe6734c594e9f90ae78076c9e27a16d5e44e1141
     name: clientip
     urls:
     - clientip-0.1.0.tgz
@@ -13,9 +13,9 @@ entries:
   hello-svc:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-13T13:05:24.176633177+01:00"
+    created: "2020-12-18T07:31:58.211253685+01:00"
     description: A Helm chart for Kubernetes
-    digest: df0bfb75ac367bd60acce6775678940ca7616b4bc4d0a93aef4d4aef308f213e
+    digest: 3acbdfa53c9d26e1a627206373a0dd18508d8a5279acea635cde292f543d8482
     name: hello-svc
     urls:
     - hello-svc-0.1.0.tgz
@@ -23,9 +23,9 @@ entries:
   quote-svc:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-13T13:05:24.176972339+01:00"
+    created: "2020-12-18T07:31:58.211565957+01:00"
     description: A Helm chart for Kubernetes
-    digest: 9567aae70a6bebdf604509583dcde4a83785d34b987f411bbf4411702cd4664f
+    digest: 4086cd8932ad2d6e74cbc5d6721ffa427fef3dbc86d124d8421238b6aefb571d
     name: quote-svc
     urls:
     - quote-svc-0.1.0.tgz
@@ -33,10 +33,10 @@ entries:
   sso-app-backend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-13T13:05:24.177358134+01:00"
+    created: "2020-12-18T07:31:58.211950449+01:00"
     description: 'N-Able Training: Subject Single Sign On - Backoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: 1e37ecd6ee707712485ad6822e300833c2bb013bc63ea2ec756180db64533840
+    digest: 561f3b6ebc7656d2f3a8c4000399e242e58fc0834499afc001bf6e97ef2e5e29
     name: sso-app-backend
     urls:
     - sso-app-backend-0.1.0.tgz
@@ -44,12 +44,22 @@ entries:
   sso-app-frontend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-12-13T13:05:24.177738529+01:00"
+    created: "2020-12-18T07:31:58.212326078+01:00"
     description: 'N-Able Training: Subject Single Sign On - Frontoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: 9e8bcf3203274ceb7aa09f254945ab354186ff5ddd5a63849c1a6b78a51ba10d
+    digest: 912e77dd26e12c48263b39099cc8823fad14e09c9fc3758eac7e0ca21d265ad5
     name: sso-app-frontend
     urls:
     - sso-app-frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-13T13:05:24.175761769+01:00"
+  wordpress-import-job:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-12-18T07:31:58.212685412+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 6e98b754183eb8f3952751daaa664b653d52abb1baa392c4133937018517fca0
+    name: wordpress-import-job
+    urls:
+    - wordpress-import-job-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-12-18T07:31:58.210437024+01:00"

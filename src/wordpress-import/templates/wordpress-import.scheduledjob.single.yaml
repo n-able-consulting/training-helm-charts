@@ -1,0 +1,78 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "wordpress-import-job.fullname" . }}
+  labels:
+    app: {{ template "wordpress-import-job.name" . }}
+    chart: {{ template "wordpress-import-job.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  template:
+    metadata:
+      labels:
+        app: {{ template "wordpress-import-job.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ template "wordpress-import-job.image" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["bash", "-c", "sleep 5; bash /import.sh"]
+        #command: ["bash", "import.sh"]
+        env:
+          - name: APP_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: app
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: db
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: dbhost
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: dbuser
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: dbpass
+          - name: DROPBOX_AUTH
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}-dropbox
+                key: authentication
+          - name: ALL_DATABASES
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: all_databases
+          - name: BACKUP_DIR
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: backup-dir
+          - name: BACKUP_RESTORENUMBER
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-import-job.fullname" . }}
+                key: restore_number
+        volumeMounts:
+          - name: wordpress-operational
+            mountPath: /data
+      imagePullSecrets:
+        - name: {{ template "wordpress-import-job.fullname" . }}-tc
+      volumes:
+        - name: wordpress-operational
+          persistentVolumeClaim:
+            claimName:  {{ .Values.wordpress.persistent.readwritemany.volumeclaim }}
+      restartPolicy: OnFailure
