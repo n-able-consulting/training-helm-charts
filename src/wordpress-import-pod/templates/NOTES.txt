@@ -1,0 +1,1 @@
+fullname is wordpress-import-job.fullname

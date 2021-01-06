@@ -1,5 +1,5 @@
 .PHONY : all
-all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd
+all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip
 
 .PHONY: sso-app-frontend
 sso-app-frontend:
@@ -34,4 +34,19 @@ wi:
 .PHONY: wd
 wd:
 	helm package ./src/wordpress-dump -d charts/
+	cd charts && helm repo index .
+
+.PHONY: wdj
+wdj:
+	helm package ./src/wordpress-dump-job -d charts/
+	cd charts && helm repo index .
+
+.PHONY: wdp
+wdp:
+	helm package ./src/wordpress-dump-pod -d charts/
+	cd charts && helm repo index .
+
+.PHONY: wip
+wip:
+	helm package ./src/wordpress-import-pod -d charts/
 	cd charts && helm repo index .

@@ -1,0 +1,34 @@
+nameOverride: ""
+fullnameOverride: ""
+
+instances: 1
+
+wordpress:
+  #sitename is essential for keeping dumps appart in the backup directory
+  sitename: "unique-site-name"
+  persistent:
+    readwritemany:
+      volumeclaim: "a"
+  database:
+    service: "k8s-db-hostname"
+    user: ""
+    password: ""
+    name: "wordpress_database_name"
+
+dump:
+  #optional: "", true, false
+  all_databases: false
+
+image:
+  registry: registry.gitlab.com
+  repository: wordpress-dump-job
+  tag: pod
+  credentailsname: gitlabcredentials
+  username: someone
+  password: sillyness
+  pullPolicy: Always
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 10Gi
+  storageClass: ""
