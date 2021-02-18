@@ -1,5 +1,5 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: ReplicaSet
 metadata:
   name: {{ template "wordpress-dump-pod.fullname" . }}
   labels:
@@ -8,66 +8,83 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  containers:
-  - name: {{ .Chart.Name }}
-    image: {{ template "wordpress-dump-pod.image" . }}
-    imagePullPolicy: {{ .Values.image.pullPolicy }}
-    command: ["sleep", "36000"]
-    env:
-      - name: APP_NAME
-        valueFrom:
-          configMapKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}
-            key: app
-      - name: DB_NAME
-        valueFrom:
-          configMapKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}
-            key: db
-      - name: DB_HOST
-        valueFrom:
-          configMapKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}
-            key: dbhost
-      - name: DB_USER
-        valueFrom:
-          secretKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}
-            key: dbuser
-      - name: DB_PASS
-        valueFrom:
-          secretKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}
-            key: dbpass
-      - name: DROPBOX_AUTH
-        valueFrom:
-          secretKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}-dropbox
-            key: authentication
-      - name: ALL_DATABASES
-        valueFrom:
-          configMapKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}
-            key: all_databases
-      - name: BACKUP_DIR
-        valueFrom:
-          configMapKeyRef:
-            name: {{ template "wordpress-dump-pod.fullname" . }}
-            key: backup-dir
-    volumeMounts:
-      - name: wordpress-dump
-        mountPath: /dump
-      - name: wordpress-operational
-        mountPath: /data
-  imagePullSecrets:
-    - name: {{ template "wordpress-dump-pod.fullname" . }}-tc
-  volumes:
-    - name: wordpress-dump
-      persistentVolumeClaim:
-        claimName: {{ template "wordpress-dump-pod.fullname" . }}
-    - name: wordpress-operational
-      persistentVolumeClaim:
-        claimName:  {{ .Values.wordpress.persistent.readwritemany.volumeclaim }}
+  # modify replicas according to your case
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "wordpress-dump-pod.name" . }}
+      chart: {{ template "wordpress-dump-pod.chart" . }}
+      release: {{ .Release.Name }}
+      heritage: {{ .Release.Service }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "wordpress-dump-pod.name" . }}
+        chart: {{ template "wordpress-dump-pod.chart" . }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ template "wordpress-dump-pod.image" . }}
+        image: 'registry.gitlab.com/ruben-enable/wordpress-dump-job:pod'
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["sleep", "36000"]
+        env:
+          - name: APP_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}
+                key: app
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}
+                key: db
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}
+                key: dbhost
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}
+                key: dbuser
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}
+                key: dbpass
+          - name: DROPBOX_AUTH
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}-dropbox
+                key: authentication
+          - name: ALL_DATABASES
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}
+                key: all_databases
+          - name: BACKUP_DIR
+            valueFrom:
+              configMapKeyRef:
+                name: {{ template "wordpress-dump-pod.fullname" . }}
+                key: backup-dir
+        volumeMounts:
+          - name: wordpress-dump
+            mountPath: /dump
+          - name: wordpress-operational
+            mountPath: /data
+      imagePullSecrets:
+        - name: {{ template "wordpress-dump-pod.fullname" . }}-tc
+      volumes:
+        - name: wordpress-dump
+          persistentVolumeClaim:
+            claimName: {{ template "wordpress-dump-pod.fullname" . }}
+        - name: wordpress-operational
+          persistentVolumeClaim:
+            claimName:  {{ .Values.wordpress.persistent.readwritemany.volumeclaim }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

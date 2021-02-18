@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ template "wordpress-dump-job.image" . }}
+        #image: {{ template "wordpress-dump-job.image" . }}
+        image: 'registry.gitlab.com/ruben-enable/wordpress-dump-job:job'
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         command: ["bash",  "dump.sh"]
         env:
