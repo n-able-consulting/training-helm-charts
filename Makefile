@@ -1,5 +1,5 @@
 .PHONY : all
-all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip
+all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip key
 
 .PHONY: sso-app-frontend
 sso-app-frontend:
@@ -49,4 +49,9 @@ wdp:
 .PHONY: wip
 wip:
 	helm package ./src/wordpress-import-pod -d charts/
+	cd charts && helm repo index .
+
+.PHONY: key
+key:
+	helm package ./src/keycloak -d charts/
 	cd charts && helm repo index .
