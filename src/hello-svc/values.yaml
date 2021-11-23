@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: enabledocker/hello-svc
-  tag: stable
+  tag: v1.0
   pullPolicy: IfNotPresent
 
 nameOverride: ""
