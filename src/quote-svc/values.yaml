@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: enabledocker/quote-svc
-  tag: stable
+  tag: v1.0
   pullPolicy: IfNotPresent
 
 nameOverride: ""
