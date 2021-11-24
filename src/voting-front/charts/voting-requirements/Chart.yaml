@@ -1,0 +1,7 @@
+annotations:
+  category: Demo
+apiVersion: v1
+appVersion: "1.0"
+description: Voting Application Demo - Tier 3 - Requirements
+name: voting-requirements
+version: 1.0.0

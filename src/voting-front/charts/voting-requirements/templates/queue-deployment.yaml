@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "voting-requirements.fullname" . }}-queue
+  labels:
+    app.kubernetes.io/name: {{ include "voting-requirements.name" . }}-queue
+    helm.sh/chart: {{ include "voting-requirements.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/app: queue
+    app.kubernetes.io/brand: redis
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "voting-requirements.name" . }}-queue
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/app: queue
+      app.kubernetes.io/brand: redis
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "voting-requirements.name" . }}-queue
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/app: queue
+        app.kubernetes.io/brand: redis
+    spec:
+      containers:
+        - name: {{ include "voting-requirements.fullname" . }}-queue
+          image: "{{ .Values.queueImage.repository }}:{{ .Values.queueImage.tag }}"
+          imagePullPolicy: {{ .Values.queueImage.pullPolicy }}
+          ports:
+          -  containerPort: {{ .Values.queueDeployment.containerPort }}
+          livenessProbe:
+            exec:
+              command:
+              - sh
+              - -c
+              - '[ $(redis-cli ping) = PONG ]'
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 5
+          readinessProbe:
+            exec:
+              command:
+              - sh
+              - -c
+              - '[ $(redis-cli ping) = PONG ]'
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 5
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

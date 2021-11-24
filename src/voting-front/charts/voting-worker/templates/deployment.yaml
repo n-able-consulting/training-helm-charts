@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "voting-worker.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "voting-worker.name" . }}
+    helm.sh/chart: {{ include "voting-worker.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "voting-worker.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "voting-worker.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: DATABASE_HOST
+            value: '{{ .Values.database.service }}'
+          - name: DATABASE_PORT
+            value: '{{ .Values.database.port }}'
+          - name: DATABASE_NAME
+            value: '{{ .Values.database.name }}'
+          - name: QUEUE_HOST
+            value: '{{ .Values.queue.service }}'
+          - name: QUEUE_PORT
+            value: '{{ .Values.queue.port }}'
+      imagePullSecrets:
+        - name: {{ .Values.registry.secret }}

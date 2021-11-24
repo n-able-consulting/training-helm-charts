@@ -1,23 +1,22 @@
 {{- $ingress := .Values.ingress -}}
 {{- if $ingress.enabled -}}
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $ingress.host }}-rules
-  annotations:
-    kubernetes.io/tls-acme: "true"
 {{- with $ingress.annotations }}
+  annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
   labels:
-    app.kubernetes.io/name: {{ include "clientip.name" . }}
-    helm.sh/chart: {{ include "clientip.chart" . }}
+    app.kubernetes.io/name: {{ include "vote-front.name" . }}
+    helm.sh/chart: {{ include "vote-front.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   ingressClassName: nginx
   tls:
-    - hosts: 
+    - hosts:
       - {{ $ingress.host }}
       secretName: {{ $ingress.host }}-tls
   rules:
@@ -28,7 +27,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "clientip.fullname" . }}
+                name: {{ include "vote-front.fullname" . }}
                 port:
                 number: {{ .Values.service.port }}
   {{- end }}

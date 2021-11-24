@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "vote-front.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "vote-front.name" . }}
+    helm.sh/chart: {{ include "vote-front.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "vote-front.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "vote-front.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: [ 'bash','-c','bash kubernetes/add_environment_variables.tsk && nginx -g daemon off']
+          env:
+          - name: VOTE_API_ADDRESS
+            value: 'https://{{ .Values.vote.url }}'
+          - name: VOTE_API_PORT
+            value: '{{ .Values.vote.port }}'
+          ports:
+          - containerPort: {{ .Values.deployment.port }}
+      imagePullSecrets:
+        - name: {{ .Values.registry.secret }}

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "voting-reports.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "voting-reports.name" . }}
+    helm.sh/chart: {{ include "voting-reports.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "voting-reports.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "voting-reports.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: DATABASE_HOST
+            value: '{{ .Values.database.service }}'
+          - name: DATABASE_PORT
+            value: '{{ .Values.database.port }}'
+          - name: DATABASE_NAME
+            value: '{{ .Values.database.name }}'
+          - name: REPORTER_SERVICE
+            value: '{{ .Values.reporter.service }}'
+          ports:
+          - containerPort: {{ .Values.deployment.port }}
+          name: wordpress
+      imagePullSecrets:
+        - name: {{ .Values.registry.secret }}

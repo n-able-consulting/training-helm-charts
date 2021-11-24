@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "voting-votes.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "voting-votes.name" . }}
+    helm.sh/chart: {{ include "voting-votes.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: {{ include "voting-votes.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

@@ -1,0 +1,33 @@
+annotations:
+  category: Demo
+apiVersion: v1
+appVersion: "2.0"
+dependencies:
+- name: voting-vote
+  repository: https://raw.githubusercontent.com/n-able-consulting/training-helm-charts/master/charts
+  tags:
+  - voting-vote
+  version: 1.x.x
+- name: voting-votes
+  repository: https://raw.githubusercontent.com/n-able-consulting/training-helm-charts/master/charts
+  tags:
+  - voting-votes
+  version: 1.x.x
+- name: voting-reports
+  repository: https://raw.githubusercontent.com/n-able-consulting/training-helm-charts/master/charts
+  tags:
+  - voting-reports
+  version: 1.x.x
+- name: voting-requirements
+  repository: https://raw.githubusercontent.com/n-able-consulting/training-helm-charts/master/charts
+  tags:
+  - voting-requirements
+  version: 1.x.x
+- name: voting-worker
+  repository: https://raw.githubusercontent.com/n-able-consulting/training-helm-charts/master/charts
+  tags:
+  - voting-worker
+  version: 1.x.x
+description: Voting Application Demo - FrontEnd
+name: vote-front
+version: 1.0.0

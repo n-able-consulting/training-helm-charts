@@ -1,0 +1,7 @@
+annotations:
+  category: Demo
+apiVersion: v1
+appVersion: "1.0"
+description: Voting Application Demo - Tier 2 - Reporting Component
+name: voting-reports
+version: 1.0.0
