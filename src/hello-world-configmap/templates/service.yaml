@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "hello-world-configmap.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "hello-world-configmap.name" . }}
+    helm.sh/chart: {{ include "hello-world-configmap.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: {{ include "hello-world-configmap.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

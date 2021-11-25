@@ -1,30 +1,14 @@
 .PHONY : all
-all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip key voting-front voting-vote voting-votes voting-reports voting-requirements voting-worker
+all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip key voting-front hello-world-configmap
 
+.PHONY: hello-world-configmap
+hello-world-configmap:
+	helm package ./src/hello-world-configmap -d charts/
+	cd charts && helm repo index .
 
 .PHONY: voting-front
 voting-front:
 	helm package ./src/voting-front -d charts/
-	cd charts && helm repo index .
-.PHONY: voting-vote
-voting-vote:
-	helm package ./src/voting-vote -d charts/
-	cd charts && helm repo index .
-.PHONY: voting-votes
-voting-votes:
-	helm package ./src/voting-votes -d charts/
-	cd charts && helm repo index .
-.PHONY: voting-reports
-voting-reports:
-	helm package ./src/voting-reports -d charts/
-	cd charts && helm repo index .
-.PHONY: voting-requirements
-voting-requirements:
-	helm package ./src/voting-requirements -d charts/
-	cd charts && helm repo index .
-.PHONY: voting-worker
-voting-worker:
-	helm package ./src/voting-worker -d charts/
 	cd charts && helm repo index .
 
 .PHONY: sso-app-frontend
