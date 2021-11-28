@@ -12,6 +12,7 @@ spec:
   ports:
     - port: {{ .Values.service.port }}
       protocol: TCP
+      targetPort: {{ .Values.app.port }}
   selector:
     app.kubernetes.io/name: {{ include "hello-world-configmap.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
