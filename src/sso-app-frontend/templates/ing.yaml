@@ -5,7 +5,7 @@ kind: Ingress
 metadata:
   name: {{ $ingress.host }}-rules
   annotations:
-    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 {{- with $ingress.annotations }}
 {{ toYaml . | indent 4 }}
 {{- end }}

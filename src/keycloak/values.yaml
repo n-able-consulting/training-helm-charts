@@ -255,7 +255,7 @@ keycloak:
 
     annotations: {}
       # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
+      # cert-manager.io/cluster-issuer: letsencrypt-prod
       # ingress.kubernetes.io/affinity: cookie
 
     labels: {}
@@ -278,7 +278,7 @@ keycloak:
     path: /
 
     annotations: {}
-      # kubernetes.io/tls-acme: "true"
+      # cert-manager.io/cluster-issuer: letsencrypt-prod
       # haproxy.router.openshift.io/disable_cookies: "true"
       # haproxy.router.openshift.io/balance: roundrobin
 

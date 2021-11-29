@@ -23,7 +23,7 @@ service:
   port: 3000
 
 ingress:
-    enabled: true
+    enabled: false
     path: /
     annotations: {}
     ## List of hosts for the ingress
