@@ -30,5 +30,5 @@ spec:
               service:
                 name: {{ include "sso-frontend.fullname" . }}
                 port:
-                number: {{ .Values.service.port }}
+                  number: {{ .Values.service.port }}
   {{- end }}
