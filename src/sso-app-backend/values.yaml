@@ -24,11 +24,11 @@ service:
   port: "80"
 
 ingress:
-    enabled: true
-    path: /
-    annotations: {}
-    ## List of hosts for the ingress
-    host: sso-backend.part1.xyz
+  enabled: true
+  path: /
+  annotations: {}
+  ## List of hosts for the ingress
+  host: sso-backend.part1.xyz
 
 # Readiness probe
 readinessProbe:
