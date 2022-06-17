@@ -23,24 +23,16 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: MYSQL_HOST
+            value: {{ .Values.ulContainer.backofficeService }}
+          - name: CORSCLIENT_ORIGINS
+            value: {{ .Values.ulContainer.corsORIGIN }}
+          - name: MYSQL_USER
+            value: {{ .Values.db.user }}
+          - name: MYSQL_PASSWORD
+            value: {{ .Values.db.password }}
           ports:
           - name: http
             containerPort: {{ .Values.ulContainer.port }}
-          livenessProbe:
-            httpGet:
-              path: /healthy
-              port: {{ .Values.ulContainer.port }}
-            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
-            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
-            successThreshold: {{ .Values.livenessProbe.successThreshold }}
-          readinessProbe:
-            httpGet:
-              path: /ready
-              port: {{ .Values.ulContainer.port }}
-            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
-            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
-            successThreshold: {{ .Values.readinessProbe.successThreshold }}
     

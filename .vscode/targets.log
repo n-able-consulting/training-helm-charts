@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 17 05:01:29 2022
+# Make data base, printed on Fri Jun 17 06:12:08 2022
 
 # Variables
 
@@ -29,7 +29,7 @@ HOMEBREW_PREFIX = /home/linuxbrew/.linuxbrew
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-02741066-6c70-43b5-bb98-66d98e041dca.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9e4ecb68-fe81-4ddb-aa7b-3c9dd635435d.sock
 # environment
 LC_NAME = nl_NL.UTF-8
 # environment
@@ -259,7 +259,7 @@ HOMEBREW_CELLAR = /home/linuxbrew/.linuxbrew/Cellar
 # environment
 LC_MEASUREMENT = nl_NL.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 1034953
+GIO_LAUNCHED_DESKTOP_FILE_PID = 1056606
 # environment
 _ = /snap/code/98/usr/share/code/code
 # environment
@@ -543,6 +543,6 @@ wd:
 # strcache performance: lookups = 112 / hit rate = 75%
 # hash-table stats:
 # Load=28/8192=0%, Rehash=0, Collisions=0/112=0%
-# Finished Make data base on Fri Jun 17 05:01:29 2022
+# Finished Make data base on Fri Jun 17 06:12:08 2022
 
  

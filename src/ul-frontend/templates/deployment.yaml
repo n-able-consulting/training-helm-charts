@@ -25,10 +25,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: [ 'bash','-c','bash kubernetes/add_environment_variables.tsk && nginx -g daemon off']
           env:
-          - name: VOTE_API_ADDRESS
-            value: 'https://{{ .Values.vote.url }}'
-          - name: VOTE_API_PORT
-            value: '{{ .Values.vote.port }}'
+          - name: UL_API_ADDRESS
+            value: 'https://{{ .Values.ul.url }}'
+          - name: UL_API_PORT
+            value: '{{ .Values.ul.port }}'
           ports:
           - containerPort: {{ .Values.deployment.port }}
       imagePullSecrets:
