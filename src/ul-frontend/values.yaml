@@ -1,0 +1,69 @@
+# Default values for voting-worker.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+production: false
+replicaCount: 1
+
+image:
+  repository: enabledocker/voting-front
+  tag: 1.1
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+deployment:
+  port: 80
+
+service:
+  type: ClusterIP
+  port: 80
+vote:
+  url: 'https://master.voting-vote.test.c1.n-able.xyz'
+  port: 80
+
+ingress:
+    enabled: false
+    path: /
+
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # cert-manager.io/cluster-issuer: letsencrypt-prod
+      # ingress.kubernetes.io/affinity: cookie
+
+    ## List of hosts for the ingress
+    host: voting.n-able.xyz
+
+# Readiness probe
+readinessProbe:
+  initialDelaySeconds: 5
+  timeoutSeconds: 1
+  failureThreshold: 3
+  periodSeconds: 10
+  successThreshold: 1
+
+# Liveness probe
+livenessProbe:
+  initialDelaySeconds: 30
+  timeoutSeconds: 5
+  failureThreshold: 3
+  periodSeconds: 10
+  successThreshold: 1
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

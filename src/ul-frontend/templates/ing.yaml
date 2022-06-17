@@ -1,0 +1,33 @@
+{{- $ingress := .Values.ingress -}}
+{{- if $ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $ingress.host }}-rules
+{{- with $ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  labels:
+    app.kubernetes.io/name: {{ include "ul-frontend.name" . }}
+    helm.sh/chart: {{ include "ul-frontend.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - {{ $ingress.host }}
+      secretName: {{ $ingress.host }}-tls
+  rules:
+    - host: {{ $ingress.host }}
+      http:
+        paths:
+          - path: {{ $ingress.path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "ul-frontend.fullname" . }}
+                port:
+                number: {{ .Values.service.port }}
+  {{- end }}

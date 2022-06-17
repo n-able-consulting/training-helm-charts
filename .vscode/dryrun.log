@@ -1,0 +1,34 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/ruben/code-local/k8s/training-helm-charts'
+helm package ./src/sso-app-frontend -d charts/
+cd charts && helm repo index .
+helm package ./src/sso-app-backend -d charts/
+cd charts && helm repo index .
+helm package ./src/client-ip -d charts/
+cd charts && helm repo index .
+helm package ./src/hello-svc -d charts/
+cd charts && helm repo index .
+helm package ./src/quote-svc -d charts/
+cd charts && helm repo index .
+helm package ./src/wordpress-import -d charts/
+cd charts && helm repo index .
+helm package ./src/wordpress-dump -d charts/
+cd charts && helm repo index .
+helm package ./src/wordpress-dump-job -d charts/
+cd charts && helm repo index .
+helm package ./src/wordpress-dump-pod -d charts/
+cd charts && helm repo index .
+helm package ./src/wordpress-import-pod -d charts/
+cd charts && helm repo index .
+helm package ./src/keycloak -d charts/
+cd charts && helm repo index .
+helm package ./src/voting-front -d charts/
+cd charts && helm repo index .
+helm package ./src/hello-world-configmap -d charts/
+cd charts && helm repo index .
+helm package ./src/ul -d charts/
+cd charts && helm repo index .
+helm package ./src/ul-frontend -d charts/
+cd charts && helm repo index .
+make: Leaving directory '/home/ruben/code-local/k8s/training-helm-charts'
+ 

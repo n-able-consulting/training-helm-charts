@@ -1,5 +1,15 @@
 .PHONY : all
-all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip key voting-front hello-world-configmap
+all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip key voting-front hello-world-configmap ul ul-frontend
+
+.PHONY: ul
+ul:
+	helm package ./src/ul -d charts/
+	cd charts && helm repo index .
+
+.PHONY: ul-frontend
+ul-frontend:
+	helm package ./src/ul-frontend -d charts/
+	cd charts && helm repo index .
 
 .PHONY: hello-world-configmap
 hello-world-configmap:

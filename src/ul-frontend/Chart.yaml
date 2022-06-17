@@ -1,0 +1,7 @@
+annotations:
+  category: Demo
+apiVersion: v1
+appVersion: "2.0"
+description: Userlist Frontend
+name: ul-frontend
+version: 1.0.0

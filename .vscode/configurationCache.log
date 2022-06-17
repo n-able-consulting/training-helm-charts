@@ -1,0 +1,1 @@
+{"buildTargets":["all","client-ip","hello-svc","hello-world-configmap","key","quote-svc","sso-app-backend","sso-app-frontend","ul","ul-frontend","voting-front","wd","wdj","wdp","wi","wip"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
