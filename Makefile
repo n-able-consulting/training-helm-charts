@@ -1,5 +1,5 @@
 .PHONY : all
-all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc wi wd wdj wdp wip key voting-front hello-world-configmap ul ul-frontend
+all : sso-app-frontend sso-app-backend client-ip hello-svc quote-svc key voting-front hello-world-configmap ul ul-frontend
 
 .PHONY: ul
 ul:
@@ -46,30 +46,30 @@ quote-svc:
 	helm package ./src/quote-svc -d charts/
 	cd charts && helm repo index .
 
-.PHONY: wi
-wi:
-	helm package ./src/wordpress-import -d charts/
-	cd charts && helm repo index .
+# .PHONY: wi
+# wi:
+# 	helm package ./src/wordpress-import -d charts/
+# 	cd charts && helm repo index .
 
-.PHONY: wd
-wd:
-	helm package ./src/wordpress-dump -d charts/
-	cd charts && helm repo index .
+# .PHONY: wd
+# wd:
+# 	helm package ./src/wordpress-dump -d charts/
+# 	cd charts && helm repo index .
 
-.PHONY: wdj
-wdj:
-	helm package ./src/wordpress-dump-job -d charts/
-	cd charts && helm repo index .
+# .PHONY: wdj
+# wdj:
+# 	helm package ./src/wordpress-dump-job -d charts/
+# 	cd charts && helm repo index .
 
-.PHONY: wdp
-wdp:
-	helm package ./src/wordpress-dump-pod -d charts/
-	cd charts && helm repo index .
+# .PHONY: wdp
+# wdp:
+# 	helm package ./src/wordpress-dump-pod -d charts/
+# 	cd charts && helm repo index .
 
-.PHONY: wip
-wip:
-	helm package ./src/wordpress-import-pod -d charts/
-	cd charts && helm repo index .
+# .PHONY: wip
+# wip:
+# 	helm package ./src/wordpress-import-pod -d charts/
+# 	cd charts && helm repo index .
 
 .PHONY: key
 key:

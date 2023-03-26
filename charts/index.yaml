@@ -3,9 +3,9 @@ entries:
   clientip:
   - apiVersion: v1
     appVersion: "0.2"
-    created: "2022-06-17T08:32:31.128945823+02:00"
+    created: "2023-03-26T18:23:06.384185113+02:00"
     description: 'N-Able Training: client-ip app'
-    digest: 320526f032284af5ce65f061e6788e2a65bc82b8226d55bfecaccd4f05d9db6b
+    digest: 89fa49d2cd65a65763797a41e4764e3a36d8849d89b1cb78ff04161e70b84d81
     name: clientip
     urls:
     - clientip-0.2.1.tgz
@@ -13,9 +13,9 @@ entries:
   hello-svc:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T08:32:31.129574332+02:00"
+    created: "2023-03-26T18:23:06.384840419+02:00"
     description: A Helm chart for Kubernetes
-    digest: bb762be47b61e5e8daa66ccb0f68db89c15e0ed3831a0149cc86bb71c7ca467e
+    digest: 10f71967e1420b2446731ad8e567a8f8042f2cb0f72b45b7b3e69ac89bde42ec
     name: hello-svc
     urls:
     - hello-svc-0.1.0.tgz
@@ -25,9 +25,9 @@ entries:
       category: Demo
     apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T08:32:31.144162551+02:00"
+    created: "2023-03-26T18:23:06.385480105+02:00"
     description: Hello World Configmap App
-    digest: e53f56590d713db5d4f4208ac18d68ab2cfc1035249f9a5ee9947352c8667726
+    digest: 1313eba763815c47172997f5c08205c6acafe6d4468a54a6601a3fba853168a2
     name: hello-world-configmap
     urls:
     - hello-world-configmap-1.0.0.tgz
@@ -35,7 +35,7 @@ entries:
   keycloak:
   - apiVersion: v1
     appVersion: 10.0.0
-    created: "2022-06-17T08:32:31.155137617+02:00"
+    created: "2023-03-26T18:23:06.391809131+02:00"
     dependencies:
     - condition: keycloak.persistence.deployPostgres
       name: postgresql
@@ -43,7 +43,7 @@ entries:
       version: 8.9.5
     description: Open Source Identity and Access Management For Modern Applications
       and Services
-    digest: 3b372981be9404f14ac39df29af115b75c932a599f138e2db7881d721b166203
+    digest: 74a9336231ae6bb5e4f2480dfe3fd9a1c919d2bfee788f6361ca35a633525b87
     home: https://www.keycloak.org/
     icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
     keywords:
@@ -68,9 +68,9 @@ entries:
   quote-svc:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T08:32:31.155818159+02:00"
+    created: "2023-03-26T18:23:06.39244662+02:00"
     description: A Helm chart for Kubernetes
-    digest: d6d6a449c40f2dc67c98d035811bdd1a574067645ccf6fe9174132fc41b838f7
+    digest: 64c42f37a37fe55c340a9762eb54e68cc4e3393beff6c23ff81f4fff34884e87
     name: quote-svc
     urls:
     - quote-svc-0.1.0.tgz
@@ -78,10 +78,10 @@ entries:
   sso-app-backend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T08:32:31.156442299+02:00"
+    created: "2023-03-26T18:23:06.393073994+02:00"
     description: 'N-Able Training: Subject Single Sign On - Backoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: e8841a84d962a3f99f51a8af62a48a2b74799d0c068d8cb4416e869163c268a0
+    digest: a9295d5a22d261be44ac3f2ef2d7ec56a3c6df32d8803df5f2f8be57850e40c8
     name: sso-app-backend
     urls:
     - sso-app-backend-0.1.0.tgz
@@ -89,10 +89,10 @@ entries:
   sso-app-frontend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T08:32:31.157520571+02:00"
+    created: "2023-03-26T18:23:06.393690611+02:00"
     description: 'N-Able Training: Subject Single Sign On - Frontoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: 644dcbac7102fb1a01b6b4a8c64688ce353e83a5efca8ad35eeb01c7a270b87e
+    digest: d4925c0e86bb74d184aa3d0d726e7acf7e8bfe1ece6b85873c072577b0abcfee
     name: sso-app-frontend
     urls:
     - sso-app-frontend-0.1.0.tgz
@@ -100,9 +100,9 @@ entries:
   ul:
   - apiVersion: v1
     appVersion: "0.2"
-    created: "2022-06-17T08:32:31.158127852+02:00"
+    created: "2023-03-26T18:23:06.39432911+02:00"
     description: SpringBoot UserList
-    digest: 6faca167f1d1bb3c54bb68e0177ad638f6997127963f0d79379c2521df9fe0dc
+    digest: 1ebee3a2abd4cafb8af51323ddb818447fe91eec2c493abd6acea3264f80287b
     name: ul
     urls:
     - ul-0.2.1.tgz
@@ -112,9 +112,9 @@ entries:
       category: Demo
     apiVersion: v1
     appVersion: "2.0"
-    created: "2022-06-17T08:32:31.158744548+02:00"
+    created: "2023-03-26T18:23:06.395060477+02:00"
     description: Userlist Frontend
-    digest: 060f2e35ae63439a571de89ba4b857ce37ae6d1e5709a8d0617f838cf6eae0b5
+    digest: 89dce8ea7c6c7eba9fd14131f5cf705439cda4f0d1552176f8ff49bc5c3de97e
     name: ul-frontend
     urls:
     - ul-frontend-1.0.0.tgz
@@ -124,61 +124,11 @@ entries:
       category: Demo
     apiVersion: v1
     appVersion: "2.0"
-    created: "2022-06-17T08:32:31.161462865+02:00"
+    created: "2023-03-26T18:23:06.400369319+02:00"
     description: Voting Application Demo - FrontEnd
-    digest: 935bbf7b9ae4903e1853634318d8a44057851bbf3509306af00e83c008cf166e
+    digest: 969c2485d6b2945628d2bc900511bcb0024af6e814d9624016b4dc8874aa8999
     name: vote-front
     urls:
     - vote-front-1.0.0.tgz
     version: 1.0.0
-  wordpress-dump-cronjob:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: "2022-06-17T08:32:31.162097114+02:00"
-    description: A Helm chart for Kubernetes
-    digest: 8763756c938b97500c6b88996cd3af83eb25021a6ce5807a8c50e79c9b68ef02
-    name: wordpress-dump-cronjob
-    urls:
-    - wordpress-dump-cronjob-0.1.0.tgz
-    version: 0.1.0
-  wordpress-dump-job:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: "2022-06-17T08:32:31.162780141+02:00"
-    description: A Helm chart for Kubernetes
-    digest: 1d98b906d3a7e3e018e3e0faf5ebb4526ad54efa3eb83be1fa507b139d9e1c35
-    name: wordpress-dump-job
-    urls:
-    - wordpress-dump-job-0.1.0.tgz
-    version: 0.1.0
-  wordpress-dump-pod:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: "2022-06-17T08:32:31.16329307+02:00"
-    description: A Helm chart for Kubernetes
-    digest: 0872a3cca52c2ed9af429c87ca75adc2664740400375c274528a884690fd757f
-    name: wordpress-dump-pod
-    urls:
-    - wordpress-dump-pod-0.1.0.tgz
-    version: 0.1.0
-  wordpress-import-job:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: "2022-06-17T08:32:31.16383129+02:00"
-    description: A Helm chart for Kubernetes
-    digest: ed3bbcc251f999d4f079f99e5942faf5a0e67568769bb96d5c07ab8967a86269
-    name: wordpress-import-job
-    urls:
-    - wordpress-import-job-0.1.0.tgz
-    version: 0.1.0
-  wordpress-import-pod:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: "2022-06-17T08:32:31.164327968+02:00"
-    description: A Helm chart for Kubernetes
-    digest: 2521885fa5cffb9bc3f143a8e4a7a9c4aafb0336f763540b4d73f4943e715e6f
-    name: wordpress-import-pod
-    urls:
-    - wordpress-import-pod-0.1.0.tgz
-    version: 0.1.0
-generated: "2022-06-17T08:32:31.127925259+02:00"
+generated: "2023-03-26T18:23:06.382602387+02:00"
