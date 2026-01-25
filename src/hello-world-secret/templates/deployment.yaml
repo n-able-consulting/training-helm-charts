@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "hello-world-secret.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "hello-world-secret.name" . }}
+    helm.sh/chart: {{ include "hello-world-secret.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "hello-world-secret.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "hello-world-secret.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
+          env:
+          - name: PORT
+            value: "{{ .Values.app.port }}"
+          - name: HELLOWORLD
+            valueFrom:
+              configMapKeyRef:
+                name: {{ include "hello-world-secret.fullname" . }}
+                key: helloworld

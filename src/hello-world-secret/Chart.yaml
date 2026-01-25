@@ -1,0 +1,7 @@
+annotations:
+  category: Demo
+apiVersion: v1
+appVersion: "1.0"
+description: Hello World Secret App
+name: hello-world-secret
+version: 1.0.0
