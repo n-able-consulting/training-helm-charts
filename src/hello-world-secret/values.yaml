@@ -13,7 +13,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 app:
-  content: "hello world"
+  content: hello world
   port: 8080
 
 service:
