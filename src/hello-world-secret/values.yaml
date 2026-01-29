@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: enabledocker/hello-world-secret
-  tag: "1.0"
+  tag: latest
   pullPolicy: Always
 
 nameOverride: ""
