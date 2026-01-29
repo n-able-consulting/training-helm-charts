@@ -28,6 +28,6 @@ spec:
             value: "{{ .Values.app.port }}"
           - name: HELLOWORLD
             valueFrom:
-              configMapKeyRef:
+              secretKeyRef:
                 name: {{ include "hello-world-secret.fullname" . }}
                 key: helloworld

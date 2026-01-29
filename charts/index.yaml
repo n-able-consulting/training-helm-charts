@@ -3,9 +3,9 @@ entries:
   clientip:
   - apiVersion: v1
     appVersion: "0.2"
-    created: "2026-01-29T20:27:29.603661634+01:00"
+    created: "2026-01-29T20:29:53.101796972+01:00"
     description: 'N-Able Training: client-ip app'
-    digest: 2477dae0b5826d6cbef805e681b7ad5897a5b89bb0ba2b5930b581a3405eac9b
+    digest: 7b45908f940d4dc3528096abf61c96d5d64f8641c728e9f085c3fc3477b7f4ef
     name: clientip
     urls:
     - clientip-0.2.1.tgz
@@ -13,9 +13,9 @@ entries:
   hello-svc:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2026-01-29T20:27:29.603841753+01:00"
+    created: "2026-01-29T20:29:53.101982743+01:00"
     description: A Helm chart for Kubernetes
-    digest: 83ed44cacb51463433391e67879fac8fe3c8359370e341277b55287a72cfc049
+    digest: 92f8c69a89342c72be119c44a9fac44b7b06b9a23ca6de7ffb3dfc7e5f2c47df
     name: hello-svc
     urls:
     - hello-svc-0.1.0.tgz
@@ -25,9 +25,9 @@ entries:
       category: Demo
     apiVersion: v1
     appVersion: "1.0"
-    created: "2026-01-29T20:27:29.604025611+01:00"
+    created: "2026-01-29T20:29:53.102191439+01:00"
     description: Hello World Configmap App
-    digest: 175e7d5c9f48c35704fbe8d0fb2942a7a345edf4de3197d10bb593b0709095cd
+    digest: 81c9bc1d96167eef99cefc029702ccf11d7955f53b05f00899cd53b59b3298ad
     name: hello-world-configmap
     urls:
     - hello-world-configmap-1.0.0.tgz
@@ -37,9 +37,9 @@ entries:
       category: Demo
     apiVersion: v1
     appVersion: "1.0"
-    created: "2026-01-29T20:27:29.604198106+01:00"
+    created: "2026-01-29T20:29:53.102461854+01:00"
     description: Hello World Secret App
-    digest: a45d2bafd632baa5d027bd9d8705a3c99a487ef064395f50fcb26521c0837d54
+    digest: 0d6d4536a2dc5377d290ccbda1a54cdf93a963545cd24a1259b44941aee0d93b
     name: hello-world-secret
     urls:
     - hello-world-secret-1.0.0.tgz
@@ -47,7 +47,7 @@ entries:
   keycloak:
   - apiVersion: v1
     appVersion: 10.0.0
-    created: "2026-01-29T20:27:29.606076689+01:00"
+    created: "2026-01-29T20:29:53.10488737+01:00"
     dependencies:
     - condition: keycloak.persistence.deployPostgres
       name: postgresql
@@ -55,7 +55,7 @@ entries:
       version: 8.9.5
     description: Open Source Identity and Access Management For Modern Applications
       and Services
-    digest: 141a56742b73b416d6e1bedef4f4acc90741aab17ea903120d95985ee3a065ab
+    digest: a9907bd76500b1c3373a4cf2ce30775c1d08f028b752e8a26d5082ee0af66a49
     home: https://www.keycloak.org/
     icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
     keywords:
@@ -80,9 +80,9 @@ entries:
   quote-svc:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2026-01-29T20:27:29.606226661+01:00"
+    created: "2026-01-29T20:29:53.105059094+01:00"
     description: A Helm chart for Kubernetes
-    digest: 4dc8f3b780abae5aad799366a9a92045a6a42a7798caf332531b7fc289a25450
+    digest: 27e33a5f9ab770d42a10623f1ba9515b863179432d7e1ed6f9871bff68ab7b35
     name: quote-svc
     urls:
     - quote-svc-0.1.0.tgz
@@ -90,10 +90,10 @@ entries:
   sso-app-backend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2026-01-29T20:27:29.606388445+01:00"
+    created: "2026-01-29T20:29:53.105253201+01:00"
     description: 'N-Able Training: Subject Single Sign On - Backoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: 97e6eea1ecbf43aaa11af5c076862fd87529ade47f5a48eea9a5b1446ecd6c3a
+    digest: dc1fcd2a4dab938b30d7c95a9a7e8f3ab57b119f99835b9ea93a95728d7f9a80
     name: sso-app-backend
     urls:
     - sso-app-backend-0.1.0.tgz
@@ -101,10 +101,10 @@ entries:
   sso-app-frontend:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2026-01-29T20:27:29.606577422+01:00"
+    created: "2026-01-29T20:29:53.105426157+01:00"
     description: 'N-Able Training: Subject Single Sign On - Frontoffice Application.
       Example of how to add RBAC to applictions using OAuth2 SSO.'
-    digest: fa172ac727474f7b6648cdbbea6aae3162d2b01a15e53b303dabbbf7918a7799
+    digest: c710ebd7d9a82b49a70970aadb299027923849e0369fd4967f1f7309c7ed8979
     name: sso-app-frontend
     urls:
     - sso-app-frontend-0.1.0.tgz
@@ -112,9 +112,9 @@ entries:
   ul:
   - apiVersion: v1
     appVersion: "0.2"
-    created: "2026-01-29T20:27:29.606737033+01:00"
+    created: "2026-01-29T20:29:53.105626787+01:00"
     description: SpringBoot UserList
-    digest: a358ff1430b0df0e712cca872422f0eada801ee8e94bc50662a2c6673479d689
+    digest: 0e657da0f91898eb59a88d6d6cd239694583eed71970b09dc2f1223992751760
     name: ul
     urls:
     - ul-0.2.1.tgz
@@ -124,9 +124,9 @@ entries:
       category: Demo
     apiVersion: v1
     appVersion: "2.0"
-    created: "2026-01-29T20:27:29.606896102+01:00"
+    created: "2026-01-29T20:29:53.105806026+01:00"
     description: Userlist Frontend
-    digest: 38c3f0a5c79024bb4a358a260b8378c63f1f0861d58fabd400592ef55547de7a
+    digest: 4df11fca9368f9331465377189929e2d80dd2811edf6eb6cca50c67545556d98
     name: ul-frontend
     urls:
     - ul-frontend-1.0.0.tgz
@@ -136,11 +136,11 @@ entries:
       category: Demo
     apiVersion: v1
     appVersion: "2.0"
-    created: "2026-01-29T20:27:29.608047701+01:00"
+    created: "2026-01-29T20:29:53.106551977+01:00"
     description: Voting Application Demo - FrontEnd
-    digest: e09e9210a85cc51a00bd2918ac219a8e3f3801f01ef4961f56f58655918428c2
+    digest: 1cca5d6e56909aedc9a941e0324c6081643817d30e4bc64b7e37345ac025c34d
     name: vote-front
     urls:
     - vote-front-1.0.0.tgz
     version: 1.0.0
-generated: "2026-01-29T20:27:29.603384785+01:00"
+generated: "2026-01-29T20:29:53.101498361+01:00"
